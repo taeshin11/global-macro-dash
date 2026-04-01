@@ -1,0 +1,40 @@
+# Global Macro Dash - Progress Tracker
+# Updated: 2026-04-01
+
+## Current Milestone: 1
+## Current Task: F01 - Project Scaffold
+## Status: IN PROGRESS
+
+### Milestone 1: Foundation [IN PROGRESS]
+- [ ] F01: Project Scaffold & Tailwind + Chart.js Setup
+- [ ] F02: Exchange Rate API Integration
+
+### Milestone 2: Currency Dashboard [NOT STARTED]
+- [ ] F03: Major Currency Pair Cards
+- [ ] F04: 7-Day Sparkline Charts
+
+### Milestone 3: Extended Data [NOT STARTED]
+- [ ] F05: Gold/Silver/Oil Prices
+- [ ] F06: Country Macro Indicators Table
+
+### Milestone 4: Interactive Features [NOT STARTED]
+- [ ] F07: Auto-Refresh
+- [ ] F08: Currency Converter Widget
+
+### Milestone 5: SEO & i18n [NOT STARTED]
+- [ ] F09: Auto i18n
+- [ ] F10: SEO Optimization
+
+### Milestone 6: Monetization & Analytics [NOT STARTED]
+- [ ] F11: Ad Integration
+- [ ] F12: Google Sheets Webhook
+- [ ] F13: Visitor Counter
+
+### Milestone 7: Content & Social [NOT STARTED]
+- [ ] F14: Feedback & Social Sharing
+- [ ] F15: Static Pages
+
+### Milestone 8: Deployment [NOT STARTED]
+- [ ] F16: Deploy to Vercel
+
+### Notes:

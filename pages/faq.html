@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ - Global Macro Dash</title>
+  <meta name="description" content="Frequently asked questions about Global Macro Dash - exchange rate accuracy, data sources, and currency converter usage.">
+  <link rel="canonical" href="https://global-macro-dash.vercel.app/pages/faq.html">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
+</head>
+<body class="font-inter bg-dash-bg text-dash-text min-h-screen">
+  <header class="bg-white border-b border-dash-border shadow-sm">
+    <div class="max-w-4xl mx-auto px-4 py-3 flex items-center gap-3">
+      <a href="../index.html" class="flex items-center gap-2 text-dash-primary hover:text-dash-primary-hover transition-colors">
+        <span class="text-2xl">📊</span>
+        <span class="font-bold">Global Macro Dash</span>
+      </a>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-4 py-8">
+    <h1 class="text-3xl font-bold mb-6">Frequently Asked Questions</h1>
+
+    <div class="space-y-4">
+      <div class="bg-white rounded-xl border border-dash-border p-6 shadow-sm">
+        <h2 class="text-lg font-semibold mb-2">How often are exchange rates updated?</h2>
+        <p class="text-dash-text-sec">Exchange rates are fetched from the European Central Bank (ECB) via the Frankfurter API. Rates are updated on business days (Monday-Friday). The dashboard auto-refreshes every 5 minutes, but the underlying ECB data typically updates once per business day around 16:00 CET.</p>
+      </div>
+
+      <div class="bg-white rounded-xl border border-dash-border p-6 shadow-sm">
+        <h2 class="text-lg font-semibold mb-2">How accurate are the exchange rates?</h2>
+        <p class="text-dash-text-sec">Rates come from the ECB reference rates, which are widely used as a benchmark. However, actual trading rates may differ slightly depending on the market, broker, or financial institution. These rates are best used for informational purposes.</p>
+      </div>
+
+      <div class="bg-white rounded-xl border border-dash-border p-6 shadow-sm">
+        <h2 class="text-lg font-semibold mb-2">How do I use the currency converter?</h2>
+        <p class="text-dash-text-sec">Enter the amount you want to convert, select the source currency (From) and target currency (To), and the result will be calculated automatically. You can swap the currencies using the swap button. Quick conversion shortcuts are available below the converter.</p>
+      </div>
+
+      <div class="bg-white rounded-xl border border-dash-border p-6 shadow-sm">
+        <h2 class="text-lg font-semibold mb-2">What do the sparkline charts show?</h2>
+        <p class="text-dash-text-sec">The small charts on each currency card show the 7-day trend. Green indicates the rate has increased over the period, red indicates a decrease. Hover over the chart to see specific values.</p>
+      </div>
+
+      <div class="bg-white rounded-xl border border-dash-border p-6 shadow-sm">
+        <h2 class="text-lg font-semibold mb-2">Where does the macro indicator data come from?</h2>
+        <p class="text-dash-text-sec">Macro indicators (GDP, inflation, interest rates, unemployment) are compiled from public sources including the IMF, World Bank, OECD, and national statistics offices. This data is updated periodically and may not reflect the most recent changes.</p>
+      </div>
+
+      <div class="bg-white rounded-xl border border-dash-border p-6 shadow-sm">
+        <h2 class="text-lg font-semibold mb-2">Is Global Macro Dash free to use?</h2>
+        <p class="text-dash-text-sec">Yes, completely free. There are no premium features, subscriptions, or hidden costs. The service is supported by advertisements.</p>
+      </div>
+
+      <div class="bg-white rounded-xl border border-dash-border p-6 shadow-sm">
+        <h2 class="text-lg font-semibold mb-2">Can I use this for trading decisions?</h2>
+        <p class="text-dash-text-sec">Global Macro Dash is for informational and educational purposes only. It is not financial advice. Always consult qualified financial professionals and verify data with official sources before making trading or investment decisions.</p>
+      </div>
+
+      <div class="bg-white rounded-xl border border-dash-border p-6 shadow-sm">
+        <h2 class="text-lg font-semibold mb-2">What languages are supported?</h2>
+        <p class="text-dash-text-sec">The dashboard is available in 8 languages: English, Korean, Japanese, Chinese (Simplified), Spanish, German, French, and Portuguese. Use the language selector in the header to switch languages.</p>
+      </div>
+    </div>
+
+    <div class="mt-6 text-center">
+      <a href="../index.html" class="text-dash-primary hover:text-dash-primary-hover transition-colors font-medium">&larr; Back to Dashboard</a>
+    </div>
+  </main>
+
+  <footer class="bg-white border-t border-dash-border mt-8 py-4 text-center text-sm text-dash-text-sec">
+    <p>&copy; 2026 Global Macro Dash. All rights reserved.</p>
+  </footer>
+</body>
+</html>

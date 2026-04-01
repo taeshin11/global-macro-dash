@@ -1,0 +1,193 @@
+/* Global Macro Dash - Custom Styles */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+  --bg-primary: #F0F4F8;
+  --bg-alt: #E2E8F0;
+  --surface: #FFFFFF;
+  --primary: #2563EB;
+  --primary-hover: #1D4ED8;
+  --secondary: #D97706;
+  --positive: #16A34A;
+  --negative: #DC2626;
+  --neutral: #6B7280;
+  --text-primary: #1E293B;
+  --text-secondary: #64748B;
+  --border: #CBD5E1;
+  --sparkline-up: #22C55E;
+  --sparkline-down: #EF4444;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Card Styles */
+.rate-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.rate-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+/* Sparkline container */
+.sparkline-container {
+  width: 120px;
+  height: 40px;
+}
+.sparkline-container canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Flash animation for updated values */
+@keyframes flash-update {
+  0% { background-color: rgba(37, 99, 235, 0.15); }
+  100% { background-color: transparent; }
+}
+.flash-update {
+  animation: flash-update 1s ease-out;
+}
+
+/* Refresh timer */
+.refresh-timer {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+/* Converter widget */
+.converter-input {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.25rem;
+}
+
+/* Table styles */
+.macro-table th {
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+}
+.macro-table th:hover {
+  background-color: var(--bg-alt);
+}
+.macro-table th .sort-icon {
+  display: inline-block;
+  margin-left: 4px;
+  opacity: 0.4;
+}
+.macro-table th.sorted .sort-icon {
+  opacity: 1;
+}
+.macro-table tbody tr:hover {
+  background-color: #F8FAFC;
+}
+
+/* Flag emoji fallback */
+.flag-icon {
+  display: inline-block;
+  width: 24px;
+  height: 18px;
+  border-radius: 2px;
+  overflow: hidden;
+  vertical-align: middle;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-alt);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--neutral);
+}
+
+/* Loading skeleton */
+.skeleton {
+  background: linear-gradient(90deg, #e2e8f0 25%, #f0f4f8 50%, #e2e8f0 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+  border-radius: 4px;
+}
+@keyframes skeleton-loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Language switcher */
+.lang-switcher select {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-size: 0.875rem;
+  color: var(--text-primary);
+  cursor: pointer;
+}
+
+/* Ad placeholders */
+.ad-placeholder {
+  background: var(--bg-alt);
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  overflow: hidden;
+}
+
+/* Social share buttons */
+.share-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: opacity 0.2s;
+  text-decoration: none;
+  color: white;
+}
+.share-btn:hover { opacity: 0.85; }
+.share-btn.twitter { background: #1DA1F2; }
+.share-btn.facebook { background: #1877F2; }
+.share-btn.linkedin { background: #0A66C2; }
+.share-btn.copy-link { background: var(--neutral); }
+
+/* Responsive */
+@media (max-width: 640px) {
+  .sparkline-container {
+    width: 80px;
+    height: 30px;
+  }
+}
+
+/* Print */
+@media print {
+  .ad-placeholder, .no-print { display: none !important; }
+}

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Global Macro Dash - Live Exchange Rates & Macro Economy Tracker</title>
+  <meta name="description" content="Track live exchange rates for major currency pairs, gold, silver, oil prices, and macro economic indicators. Free real-time currency converter with 7-day trend charts.">
+  <meta name="keywords" content="exchange rate today, live currency rates, macro economy dashboard, USD to EUR rate, currency converter, global economic indicators, interest rate tracker">
+  <meta name="author" content="Global Macro Dash">
+  <link rel="canonical" href="https://global-macro-dash.vercel.app/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Global Macro Dash - Live Exchange Rates & Macro Economy Tracker">
+  <meta property="og:description" content="Track live exchange rates, commodities, and macro economic indicators in real-time with trend charts.">
+  <meta property="og:url" content="https://global-macro-dash.vercel.app/">
+  <meta property="og:image" content="https://global-macro-dash.vercel.app/images/og-image.png">
+  <meta property="og:site_name" content="Global Macro Dash">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Global Macro Dash - Live Exchange Rates & Macro Economy Tracker">
+  <meta name="twitter:description" content="Track live exchange rates, commodities, and macro economic indicators in real-time.">
+  <meta name="twitter:image" content="https://global-macro-dash.vercel.app/images/og-image.png">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Global Macro Dash",
+    "description": "Live Exchange Rates & Macro Economy Tracker - Track major currency pairs, commodities, and economic indicators in real-time.",
+    "url": "https://global-macro-dash.vercel.app/",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Web",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "Global Macro Dash"
+    }
+  }
+  </script>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'dash-bg': '#F0F4F8',
+            'dash-alt': '#E2E8F0',
+            'dash-primary': '#2563EB',
+            'dash-primary-hover': '#1D4ED8',
+            'dash-secondary': '#D97706',
+            'dash-positive': '#16A34A',
+            'dash-negative': '#DC2626',
+            'dash-neutral': '#6B7280',
+            'dash-text': '#1E293B',
+            'dash-text-sec': '#64748B',
+            'dash-border': '#CBD5E1',
+          },
+          fontFamily: {
+            'inter': ['Inter', 'sans-serif'],
+            'mono': ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7098271335538021" crossorigin="anonymous"></script>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
+</head>
+<body class="font-inter bg-dash-bg text-dash-text min-h-screen">
+
+  <!-- Header -->
+  <header class="bg-white border-b border-dash-border shadow-sm sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between flex-wrap gap-2">
+      <div class="flex items-center gap-3">
+        <span class="text-2xl">📊</span>
+        <div>
+          <h1 class="text-xl font-bold text-dash-text" data-i18n="title">Global Macro Dash</h1>
+          <p class="text-xs text-dash-text-sec" data-i18n="subtitle">Live Exchange Rates & Macro Economy Tracker</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-4 flex-wrap">
+        <!-- Refresh Timer -->
+        <div class="refresh-timer flex items-center gap-2 no-print">
+          <span data-i18n="refreshing_in">Refreshing in</span>
+          <span id="refresh-countdown" class="font-mono font-semibold text-dash-primary">5:00</span>
+          <button id="refresh-btn" onclick="window.GlobalMacroDash.refreshNow()" class="p-1.5 rounded-full hover:bg-dash-alt transition-colors" title="Refresh Now" aria-label="Refresh rates now">
+            <svg class="w-4 h-4 text-dash-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+          </button>
+        </div>
+        <!-- Language Switcher -->
+        <div class="lang-switcher no-print">
+          <select id="lang-select" onchange="window.GlobalMacroDash.changeLanguage(this.value)" aria-label="Select language">
+            <option value="en">EN</option>
+            <option value="ko">KO</option>
+            <option value="ja">JA</option>
+            <option value="zh">ZH</option>
+            <option value="es">ES</option>
+            <option value="de">DE</option>
+            <option value="fr">FR</option>
+            <option value="pt">PT</option>
+          </select>
+        </div>
+        <!-- Nav Links -->
+        <nav class="hidden md:flex items-center gap-3 text-sm text-dash-text-sec">
+          <a href="pages/about.html" class="hover:text-dash-primary transition-colors" data-i18n="nav_about">About</a>
+          <a href="pages/faq.html" class="hover:text-dash-primary transition-colors" data-i18n="nav_faq">FAQ</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Ad Banner Top -->
+  <div class="max-w-7xl mx-auto px-4 mt-4 no-print">
+    <div class="ad-placeholder h-[90px] w-full max-w-[728px] mx-auto" data-adsterra-key="top-banner">
+      <span>Advertisement</span>
+    </div>
+  </div>
+
+  <main class="max-w-7xl mx-auto px-4 py-6 space-y-8">
+
+    <!-- Last Updated -->
+    <div class="flex items-center justify-between text-sm text-dash-text-sec">
+      <p><span data-i18n="last_updated">Last Updated</span>: <span id="last-updated-time" class="font-mono">--</span></p>
+      <p class="text-xs" data-i18n="disclaimer">Not financial advice</p>
+    </div>
+
+    <!-- Section: Major Currency Pairs -->
+    <section>
+      <h2 class="text-lg font-semibold mb-4 flex items-center gap-2" data-i18n="currency_pairs">
+        <svg class="w-5 h-5 text-dash-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        Major Currency Pairs
+      </h2>
+      <div id="currency-cards" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+        <!-- Cards injected by JS -->
+        <div class="rate-card animate-pulse"><div class="skeleton h-24 w-full"></div></div>
+        <div class="rate-card animate-pulse"><div class="skeleton h-24 w-full"></div></div>
+        <div class="rate-card animate-pulse"><div class="skeleton h-24 w-full"></div></div>
+        <div class="rate-card animate-pulse"><div class="skeleton h-24 w-full"></div></div>
+        <div class="rate-card animate-pulse"><div class="skeleton h-24 w-full"></div></div>
+        <div class="rate-card animate-pulse"><div class="skeleton h-24 w-full"></div></div>
+        <div class="rate-card animate-pulse"><div class="skeleton h-24 w-full"></div></div>
+        <div class="rate-card animate-pulse"><div class="skeleton h-24 w-full"></div></div>
+      </div>
+    </section>
+
+    <!-- Native Ad Between Sections -->
+    <div class="ad-placeholder h-[100px] w-full no-print" data-adsterra-key="native-mid">
+      <span>Advertisement</span>
+    </div>
+
+    <!-- Section: Commodities -->
+    <section>
+      <h2 class="text-lg font-semibold mb-4 flex items-center gap-2" data-i18n="commodities">
+        <svg class="w-5 h-5 text-dash-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+        Commodities
+      </h2>
+      <div id="commodity-cards" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div class="rate-card animate-pulse"><div class="skeleton h-24 w-full"></div></div>
+        <div class="rate-card animate-pulse"><div class="skeleton h-24 w-full"></div></div>
+        <div class="rate-card animate-pulse"><div class="skeleton h-24 w-full"></div></div>
+      </div>
+    </section>
+
+    <!-- Section: Currency Converter -->
+    <section class="bg-white rounded-xl border border-dash-border p-6 shadow-sm">
+      <h2 class="text-lg font-semibold mb-4 flex items-center gap-2" data-i18n="converter">
+        <svg class="w-5 h-5 text-dash-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
+        Currency Converter
+      </h2>
+      <div class="flex flex-col md:flex-row items-center gap-4">
+        <div class="flex-1 w-full">
+          <label class="block text-sm text-dash-text-sec mb-1" data-i18n="amount">Amount</label>
+          <input id="converter-amount" type="number" value="1000" min="0" step="any" class="converter-input w-full border border-dash-border rounded-lg px-4 py-3 focus:ring-2 focus:ring-dash-primary focus:border-transparent outline-none" aria-label="Amount to convert">
+        </div>
+        <div class="flex-1 w-full">
+          <label class="block text-sm text-dash-text-sec mb-1" data-i18n="from">From</label>
+          <select id="converter-from" class="w-full border border-dash-border rounded-lg px-4 py-3 text-base focus:ring-2 focus:ring-dash-primary outline-none" aria-label="From currency">
+          </select>
+        </div>
+        <button id="converter-swap" onclick="window.GlobalMacroDash.swapCurrencies()" class="mt-5 p-2 rounded-full bg-dash-alt hover:bg-dash-border transition-colors" title="Swap currencies" aria-label="Swap currencies">
+          <svg class="w-5 h-5 text-dash-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
+        </button>
+        <div class="flex-1 w-full">
+          <label class="block text-sm text-dash-text-sec mb-1" data-i18n="to">To</label>
+          <select id="converter-to" class="w-full border border-dash-border rounded-lg px-4 py-3 text-base focus:ring-2 focus:ring-dash-primary outline-none" aria-label="To currency">
+          </select>
+        </div>
+      </div>
+      <div id="converter-result" class="mt-4 p-4 bg-dash-bg rounded-lg text-center">
+        <p class="text-2xl font-mono font-semibold text-dash-primary" id="converter-output">--</p>
+        <p class="text-sm text-dash-text-sec mt-1" id="converter-rate-info"></p>
+      </div>
+      <div id="converter-shortcuts" class="mt-4 flex flex-wrap gap-2 justify-center text-sm">
+        <button onclick="window.GlobalMacroDash.quickConvert('USD','EUR')" class="px-3 py-1 bg-dash-alt rounded-full hover:bg-dash-border transition-colors">USD → EUR</button>
+        <button onclick="window.GlobalMacroDash.quickConvert('EUR','GBP')" class="px-3 py-1 bg-dash-alt rounded-full hover:bg-dash-border transition-colors">EUR → GBP</button>
+        <button onclick="window.GlobalMacroDash.quickConvert('USD','JPY')" class="px-3 py-1 bg-dash-alt rounded-full hover:bg-dash-border transition-colors">USD → JPY</button>
+        <button onclick="window.GlobalMacroDash.quickConvert('GBP','USD')" class="px-3 py-1 bg-dash-alt rounded-full hover:bg-dash-border transition-colors">GBP → USD</button>
+        <button onclick="window.GlobalMacroDash.quickConvert('USD','CHF')" class="px-3 py-1 bg-dash-alt rounded-full hover:bg-dash-border transition-colors">USD → CHF</button>
+        <button onclick="window.GlobalMacroDash.quickConvert('USD','CAD')" class="px-3 py-1 bg-dash-alt rounded-full hover:bg-dash-border transition-colors">USD → CAD</button>
+      </div>
+    </section>
+
+    <!-- AdSense slot below converter -->
+    <div class="ad-placeholder h-[250px] w-full max-w-[300px] mx-auto no-print" id="adsense-converter-slot">
+      <span>Advertisement</span>
+    </div>
+
+    <!-- Section: Macro Indicators Table -->
+    <section>
+      <h2 class="text-lg font-semibold mb-4 flex items-center gap-2" data-i18n="macro_indicators">
+        <svg class="w-5 h-5 text-dash-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+        Macro Economic Indicators
+      </h2>
+      <div class="bg-white rounded-xl border border-dash-border shadow-sm overflow-x-auto">
+        <table class="macro-table w-full text-sm">
+          <thead>
+            <tr class="border-b border-dash-border bg-dash-bg">
+              <th class="text-left px-4 py-3 font-semibold" data-sort="country" scope="col" onclick="window.GlobalMacroDash.sortTable('country')"><span data-i18n="country">Country</span><span class="sort-icon">&#x25B4;&#x25BE;</span></th>
+              <th class="text-right px-4 py-3 font-semibold" data-sort="gdpGrowth" scope="col" onclick="window.GlobalMacroDash.sortTable('gdpGrowth')"><span data-i18n="gdp_growth">GDP Growth</span><span class="sort-icon">&#x25B4;&#x25BE;</span></th>
+              <th class="text-right px-4 py-3 font-semibold" data-sort="inflation" scope="col" onclick="window.GlobalMacroDash.sortTable('inflation')"><span data-i18n="inflation">Inflation</span><span class="sort-icon">&#x25B4;&#x25BE;</span></th>
+              <th class="text-right px-4 py-3 font-semibold" data-sort="interestRate" scope="col" onclick="window.GlobalMacroDash.sortTable('interestRate')"><span data-i18n="interest_rate">Interest Rate</span><span class="sort-icon">&#x25B4;&#x25BE;</span></th>
+              <th class="text-right px-4 py-3 font-semibold" data-sort="unemployment" scope="col" onclick="window.GlobalMacroDash.sortTable('unemployment')"><span data-i18n="unemployment">Unemployment</span><span class="sort-icon">&#x25B4;&#x25BE;</span></th>
+              <th class="text-left px-4 py-3 font-semibold" scope="col" data-i18n="currency_col">Currency</th>
+            </tr>
+          </thead>
+          <tbody id="macro-table-body">
+            <!-- Rows injected by JS -->
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-dash-text-sec mt-2" id="macro-source"></p>
+    </section>
+
+    <!-- Sidebar Ad (desktop) -->
+    <div class="ad-placeholder h-[250px] w-full max-w-[300px] mx-auto no-print" data-adsterra-key="sidebar-rect">
+      <span>Advertisement</span>
+    </div>
+
+    <!-- Section: Feedback & Social Sharing -->
+    <section class="bg-white rounded-xl border border-dash-border p-6 shadow-sm">
+      <h2 class="text-lg font-semibold mb-4" data-i18n="share_rates">Share Today's Rates</h2>
+      <div class="flex flex-wrap gap-3 mb-4">
+        <a id="share-twitter" href="#" target="_blank" rel="noopener" class="share-btn twitter" aria-label="Share on Twitter">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          <span>X/Twitter</span>
+        </a>
+        <a id="share-facebook" href="#" target="_blank" rel="noopener" class="share-btn facebook" aria-label="Share on Facebook">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          <span>Facebook</span>
+        </a>
+        <a id="share-linkedin" href="#" target="_blank" rel="noopener" class="share-btn linkedin" aria-label="Share on LinkedIn">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          <span>LinkedIn</span>
+        </a>
+        <button onclick="window.GlobalMacroDash.copyLink()" class="share-btn copy-link" aria-label="Copy link">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
+          <span data-i18n="copy_link">Copy Link</span>
+        </button>
+      </div>
+      <div class="border-t border-dash-border pt-4">
+        <p class="text-sm text-dash-text-sec mb-2" data-i18n="feedback_label">Have feedback? We'd love to hear from you.</p>
+        <a href="mailto:taeshinkim11@gmail.com?subject=Global%20Macro%20Dash%20Feedback" class="inline-flex items-center gap-2 text-dash-primary hover:text-dash-primary-hover transition-colors text-sm font-medium">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          <span data-i18n="send_feedback">Send Feedback</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t border-dash-border mt-8">
+    <div class="max-w-7xl mx-auto px-4 py-6">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-dash-text-sec">
+        <div class="flex items-center gap-2">
+          <span>📊</span>
+          <span class="font-semibold text-dash-text">Global Macro Dash</span>
+          <span>&copy; 2026</span>
+        </div>
+        <nav class="flex flex-wrap gap-4">
+          <a href="pages/about.html" class="hover:text-dash-primary transition-colors" data-i18n="nav_about">About</a>
+          <a href="pages/faq.html" class="hover:text-dash-primary transition-colors" data-i18n="nav_faq">FAQ</a>
+          <a href="pages/privacy.html" class="hover:text-dash-primary transition-colors" data-i18n="nav_privacy">Privacy Policy</a>
+          <a href="pages/terms.html" class="hover:text-dash-primary transition-colors" data-i18n="nav_terms">Terms of Service</a>
+        </nav>
+        <div class="text-xs" id="visitor-counter">
+          <span data-i18n="today">Today</span>: <span id="visitors-today" class="font-mono">0</span> |
+          <span data-i18n="total">Total</span>: <span id="visitors-total" class="font-mono">0</span>
+        </div>
+      </div>
+      <p class="text-xs text-center text-dash-text-sec mt-3" data-i18n="footer_disclaimer">Data sourced from ECB, public APIs. Not financial advice. Use at your own risk.</p>
+
+      <!-- Footer Ad -->
+      <div class="ad-placeholder h-[60px] w-full max-w-[728px] mx-auto mt-4 no-print" data-adsterra-key="footer-banner">
+        <span>Advertisement</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/i18n.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/charts.js"></script>
+  <script src="js/converter.js"></script>
+  <script src="js/analytics.js"></script>
+  <script src="js/ads.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

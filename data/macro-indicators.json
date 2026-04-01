@@ -1,0 +1,18 @@
+{
+  "lastUpdated": "2026-03-15",
+  "source": "IMF, World Bank, OECD, National Statistics Offices",
+  "indicators": [
+    { "country": "United States", "code": "US", "currency": "USD", "gdpGrowth": 2.3, "inflation": 2.8, "interestRate": 4.50, "unemployment": 4.1 },
+    { "country": "Eurozone", "code": "EU", "currency": "EUR", "gdpGrowth": 0.9, "inflation": 2.4, "interestRate": 3.75, "unemployment": 6.4 },
+    { "country": "United Kingdom", "code": "GB", "currency": "GBP", "gdpGrowth": 0.6, "inflation": 3.2, "interestRate": 4.50, "unemployment": 4.3 },
+    { "country": "Japan", "code": "JP", "currency": "JPY", "gdpGrowth": 1.1, "inflation": 2.7, "interestRate": 0.25, "unemployment": 2.5 },
+    { "country": "China", "code": "CN", "currency": "CNY", "gdpGrowth": 4.8, "inflation": 0.3, "interestRate": 3.10, "unemployment": 5.1 },
+    { "country": "Canada", "code": "CA", "currency": "CAD", "gdpGrowth": 1.2, "inflation": 2.9, "interestRate": 4.25, "unemployment": 6.1 },
+    { "country": "Australia", "code": "AU", "currency": "AUD", "gdpGrowth": 1.5, "inflation": 3.4, "interestRate": 4.10, "unemployment": 4.0 },
+    { "country": "South Korea", "code": "KR", "currency": "KRW", "gdpGrowth": 2.1, "inflation": 2.5, "interestRate": 3.25, "unemployment": 2.8 },
+    { "country": "Germany", "code": "DE", "currency": "EUR", "gdpGrowth": 0.2, "inflation": 2.2, "interestRate": 3.75, "unemployment": 5.9 },
+    { "country": "France", "code": "FR", "currency": "EUR", "gdpGrowth": 0.7, "inflation": 2.3, "interestRate": 3.75, "unemployment": 7.5 },
+    { "country": "Brazil", "code": "BR", "currency": "BRL", "gdpGrowth": 2.9, "inflation": 4.5, "interestRate": 11.75, "unemployment": 7.8 },
+    { "country": "India", "code": "IN", "currency": "INR", "gdpGrowth": 6.5, "inflation": 4.8, "interestRate": 6.50, "unemployment": 7.2 }
+  ]
+}
