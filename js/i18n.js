@@ -374,6 +374,15 @@
   let currentLang = 'en';
 
   function detectLanguage() {
+    // ?lang=xx URL parameter takes highest priority
+    const urlParam = new URLSearchParams(window.location.search).get('lang');
+    if (urlParam) {
+      const urlLang = urlParam.toLowerCase();
+      if (translations[urlLang]) {
+        localStorage.setItem('gmd-lang', urlLang);
+        return urlLang;
+      }
+    }
     const saved = localStorage.getItem('gmd-lang');
     if (saved && translations[saved]) return saved;
     const nav = (navigator.language || 'en').toLowerCase().slice(0, 2);
