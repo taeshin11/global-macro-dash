@@ -1,7 +1,7 @@
 // api.js - API clients for exchange rates and historical data
 (function() {
   // Frankfurter API (primary - unlimited, no key needed)
-  const FRANKFURTER_BASE = 'https://api.frankfurter.app';
+  const FRANKFURTER_BASE = 'https://api.frankfurter.dev/v1';
 
   // Cache keys and TTLs
   const CACHE_LATEST_TTL = 5 * 60 * 1000; // 5 minutes
