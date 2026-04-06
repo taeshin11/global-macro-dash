@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About - Global Macro Dash</title>
-  <meta name="description" content="Learn about Global Macro Dash - a free live exchange rate and macro economy tracker powered by ECB data and public APIs.">
+  <title>About Global Macro Dash - Macro Economic Data Dashboard</title>
+  <meta name="description" content="Learn about Global Macro Dash: a free macro-economic data visualization tool covering exchange rates, commodity prices, GDP, inflation, and more. Data sourced from Frankfurter/ECB API.">
   <link rel="canonical" href="https://global-macro-dash.vercel.app/pages/about.html">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="../css/styles.css">
@@ -12,11 +12,17 @@
 </head>
 <body class="font-inter bg-dash-bg text-dash-text min-h-screen">
   <header class="bg-white border-b border-dash-border shadow-sm">
-    <div class="max-w-4xl mx-auto px-4 py-3 flex items-center gap-3">
+    <div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
       <a href="../index.html" class="flex items-center gap-2 text-dash-primary hover:text-dash-primary-hover transition-colors">
         <span class="text-2xl">📊</span>
         <span class="font-bold">Global Macro Dash</span>
       </a>
+      <nav class="flex items-center gap-4 text-sm text-dash-text-sec">
+        <a href="about.html" class="text-dash-primary font-medium">About</a>
+        <a href="faq.html" class="hover:text-dash-primary transition-colors">FAQ</a>
+        <a href="privacy.html" class="hover:text-dash-primary transition-colors">Privacy</a>
+        <a href="terms.html" class="hover:text-dash-primary transition-colors">Terms</a>
+      </nav>
     </div>
   </header>
 
@@ -24,41 +30,66 @@
     <h1 class="text-3xl font-bold mb-6">About Global Macro Dash</h1>
 
     <div class="bg-white rounded-xl border border-dash-border p-6 shadow-sm space-y-6">
+
       <section>
-        <h2 class="text-xl font-semibold mb-3">What is Global Macro Dash?</h2>
-        <p class="text-dash-text-sec leading-relaxed">Global Macro Dash is a comprehensive, free dashboard displaying major exchange rates, commodity prices (gold, silver, oil), and key macroeconomic indicators. Designed for forex traders, financial analysts, economics students, international business professionals, and anyone tracking global markets.</p>
+        <p class="text-dash-text-sec leading-relaxed text-lg">Global Macro Dash is a free, browser-based macro-economic data visualization dashboard that brings together exchange rates, commodity prices, currency conversion, and key economic indicators from around the world into a single, intuitive interface. Designed for financial analysts, economists, investors, business professionals, and students of international economics, the platform makes complex global financial data accessible and easy to understand — without subscriptions, logins, or fees.</p>
       </section>
 
       <section>
-        <h2 class="text-xl font-semibold mb-3">Data Sources</h2>
-        <ul class="list-disc pl-6 text-dash-text-sec space-y-2">
-          <li><strong>Exchange Rates:</strong> Sourced from the European Central Bank (ECB) via the Frankfurter API, updated on business days.</li>
-          <li><strong>Commodity Prices:</strong> Gold, silver, and crude oil data from market sources, updated periodically.</li>
-          <li><strong>Macro Indicators:</strong> GDP growth, inflation, interest rates, and unemployment data compiled from IMF, World Bank, OECD, and national statistics offices.</li>
+        <h2 class="text-xl font-semibold mb-3">Why Macro-Economic Data Matters</h2>
+        <p class="text-dash-text-sec leading-relaxed">Macro-economic conditions shape virtually every significant financial decision made by individuals, corporations, and governments. Exchange rates determine the profitability of international trade and the real value of cross-border investments. Inflation rates signal purchasing power trends and influence central bank interest rate policy. GDP growth trajectories reveal which economies are expanding and which are contracting. Unemployment figures reflect labor market health, consumer confidence, and future spending potential. For anyone involved in international business, investing, portfolio management, or economic research, monitoring these indicators consistently is not optional — it is essential.</p>
+        <p class="text-dash-text-sec leading-relaxed mt-2">Consider a few concrete use cases: an import-export business needs to track EUR/USD and USD/JPY movements daily to time foreign currency purchases. A fixed-income investor monitors central bank interest rate decisions across twelve major economies to assess bond market risk. A multinational corporation's treasury department tracks inflation in each country it operates in to adjust local pricing strategies. A graduate student studying comparative economics needs quick access to GDP growth, unemployment, and inflation data for multiple countries simultaneously. Global Macro Dash is built precisely for these use cases — providing a clean, fast, reliable overview without the complexity of professional Bloomberg terminals or the paywalls of financial data platforms.</p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold mb-3">Data Sources and Reliability</h2>
+        <p class="text-dash-text-sec leading-relaxed">We are committed to transparency about where our data comes from:</p>
+        <ul class="list-disc pl-6 text-dash-text-sec space-y-2 leading-relaxed mt-2">
+          <li><strong>Exchange Rates:</strong> All foreign exchange rates are sourced from the European Central Bank (ECB) via the <a href="https://www.frankfurter.app/" target="_blank" rel="noopener" class="text-dash-primary hover:underline">Frankfurter API</a>. The ECB publishes official reference rates for major currency pairs on each business day (Monday through Friday) at approximately 16:00 Central European Time. These rates are widely used as benchmarks in international finance, contracts, and regulatory reporting. Because they are published once per business day, rates do not change in real time throughout the trading session.</li>
+          <li><strong>Commodity Prices:</strong> Gold, silver, and crude oil price data is derived from market sources and expressed in relation to currency rates available through the ECB. Commodity prices are volatile and can change rapidly throughout the trading day. Prices shown may not reflect the most current tick-level market price and should be treated as indicative.</li>
+          <li><strong>Macro-Economic Indicators:</strong> GDP growth rates, consumer price inflation, central bank interest rates, and unemployment rates for major economies are compiled from publicly available data published by the International Monetary Fund (IMF), the World Bank, the Organisation for Economic Co-operation and Development (OECD), and national statistics agencies. These figures represent the most recently published official data at the time of our last database update and may not reflect the most current quarterly or monthly releases.</li>
         </ul>
       </section>
 
       <section>
-        <h2 class="text-xl font-semibold mb-3">Features</h2>
-        <ul class="list-disc pl-6 text-dash-text-sec space-y-2">
-          <li>Live exchange rates for 9 major currency pairs</li>
-          <li>7-day trend sparkline charts</li>
-          <li>Gold, silver, and crude oil price tracking</li>
-          <li>Interactive currency converter with 30+ currencies</li>
-          <li>Macro economic indicators for 12 major economies</li>
-          <li>Auto-refresh every 5 minutes</li>
-          <li>Available in 8 languages</li>
+        <h2 class="text-xl font-semibold mb-3">Key Features</h2>
+        <ul class="list-disc pl-6 text-dash-text-sec space-y-2 leading-relaxed">
+          <li><strong>Live Exchange Rate Cards:</strong> Nine major currency pairs (EUR/USD, GBP/USD, USD/JPY, USD/CHF, USD/CAD, AUD/USD, NZD/USD, USD/CNY, USD/KRW) displayed as individual cards with current rate, absolute change, percentage change, and color-coded directional indicator.</li>
+          <li><strong>7-Day Sparkline Trend Charts:</strong> Each currency card includes a miniature sparkline chart showing the 7-day price history, giving immediate visual context for whether a currency pair is trending up, down, or sideways over the past week.</li>
+          <li><strong>Interactive Currency Converter:</strong> A full-featured currency converter supporting 30+ currencies. Enter any amount, select source and target currencies from dropdown menus, and see the converted result instantly. Quick shortcut buttons are provided for the most common conversion pairs. Swap currencies with a single click.</li>
+          <li><strong>Commodity Price Tracker:</strong> Gold (XAU/USD), silver (XAG/USD), and crude oil (WTI) price cards with trend indicators, providing a quick macro market overview alongside foreign exchange data.</li>
+          <li><strong>Macro Indicators Table:</strong> A sortable table covering twelve major economies including the United States, Eurozone, United Kingdom, Japan, China, India, Canada, Australia, South Korea, Brazil, Switzerland, and others, displaying GDP growth rate, inflation rate, central bank interest rate, unemployment rate, and local currency.</li>
+          <li><strong>Auto-Refresh:</strong> The dashboard automatically refreshes exchange rate data every five minutes, with a countdown timer displayed in the header so you always know when the next update is coming. Manual refresh is also available.</li>
+          <li><strong>8-Language Interface:</strong> The dashboard is fully localized in English, Korean, Japanese, Chinese (Simplified), Spanish, German, French, and Portuguese.</li>
+          <li><strong>Social Sharing:</strong> Share current rate summaries directly to X/Twitter, Facebook, and LinkedIn, or copy a shareable link to the clipboard.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold mb-3">Who Benefits from Global Macro Dash</h2>
+        <ul class="list-disc pl-6 text-dash-text-sec space-y-2 leading-relaxed">
+          <li><strong>Individual Investors and Retail Traders:</strong> People who invest in international equities, bonds, ETFs, or currencies benefit from having a quick reference for exchange rate movements and macro indicators to contextualize market news and position sizing decisions.</li>
+          <li><strong>Corporate Treasury and Finance Teams:</strong> Professionals managing foreign exchange exposure, hedging programs, or international cash management use the dashboard to monitor rate movements and macro conditions affecting their currency holdings.</li>
+          <li><strong>Economists and Financial Analysts:</strong> Researchers and analysts who regularly compare macro indicators across multiple countries appreciate having GDP, inflation, interest rate, and unemployment data for twelve major economies in a single sortable table.</li>
+          <li><strong>International Business Professionals:</strong> Executives and managers at companies with global operations use the tool for quick daily checks on currency rates that affect their supply chains, pricing strategies, and financial reporting.</li>
+          <li><strong>Students and Academics:</strong> Students of economics, finance, and international business use the dashboard as a learning resource and reference tool for coursework, research papers, and understanding real-world applications of monetary theory.</li>
+          <li><strong>Travelers and Expatriates:</strong> People traveling internationally or living abroad use the currency converter to understand the real value of their money and track rate movements that affect their cost of living.</li>
         </ul>
       </section>
 
       <section class="bg-amber-50 border border-amber-200 rounded-lg p-4">
-        <h2 class="text-xl font-semibold mb-2 text-amber-800">Disclaimer</h2>
-        <p class="text-amber-700 text-sm leading-relaxed">The information provided on Global Macro Dash is for informational and educational purposes only. It should not be construed as financial, investment, or trading advice. Exchange rates and economic data may be delayed or approximate. Always verify with official sources before making financial decisions. We are not responsible for any losses resulting from the use of this data.</p>
+        <h2 class="text-xl font-semibold mb-2 text-amber-800">Important Disclaimer</h2>
+        <p class="text-amber-700 text-sm leading-relaxed">The information provided on Global Macro Dash is strictly for informational and educational purposes only. It does not constitute financial advice, investment advice, trading advice, tax advice, or any other type of professional advice. Exchange rates, commodity prices, and economic data displayed may be delayed, estimated, or subject to revisions by official sources. Actual market rates at any given moment may differ from the rates shown. <strong>You should not make any financial, investment, or trading decisions based solely on the information provided by this Service.</strong> Always consult with a qualified financial advisor, licensed broker, or other relevant professional before making investment or trading decisions. We are not responsible for any losses, financial or otherwise, resulting from your use of this Service.</p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold mb-3">Free to Use, No Registration Required</h2>
+        <p class="text-dash-text-sec leading-relaxed">Global Macro Dash is completely free. There are no subscription tiers, no premium features, and no account creation required. The Service is supported by advertising revenue, which allows us to provide this resource to users worldwide at no cost. Your language preference is stored locally in your browser and persists between visits. No personal data is collected or transmitted to our servers through normal use of the dashboard.</p>
       </section>
 
       <section>
         <h2 class="text-xl font-semibold mb-3">Contact</h2>
-        <p class="text-dash-text-sec">For feedback, suggestions, or inquiries, please email us at <a href="mailto:taeshinkim11@gmail.com" class="text-dash-primary hover:underline">taeshinkim11@gmail.com</a>.</p>
+        <p class="text-dash-text-sec leading-relaxed">We welcome your feedback, suggestions, and bug reports. If you notice incorrect data, a missing currency pair, or have an idea for a new feature, please reach out. Contact us at <a href="mailto:taeshinkim11@gmail.com?subject=Global Macro Dash Feedback" class="text-dash-primary hover:underline">taeshinkim11@gmail.com</a>.</p>
       </section>
     </div>
 
@@ -68,7 +99,7 @@
   </main>
 
   <footer class="bg-white border-t border-dash-border mt-8 py-4 text-center text-sm text-dash-text-sec">
-    <p>&copy; 2026 Global Macro Dash. All rights reserved.</p>
+    <p>&copy; 2026 Global Macro Dash. All rights reserved. | <a href="about.html" class="hover:text-dash-primary">About</a> | <a href="faq.html" class="hover:text-dash-primary">FAQ</a> | <a href="privacy.html" class="hover:text-dash-primary">Privacy Policy</a> | <a href="terms.html" class="hover:text-dash-primary">Terms of Service</a></p>
   </footer>
 </body>
 </html>

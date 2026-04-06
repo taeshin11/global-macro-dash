@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FAQ - Global Macro Dash</title>
-  <meta name="description" content="Frequently asked questions about Global Macro Dash - exchange rate accuracy, data sources, and currency converter usage.">
+  <title>FAQ - Global Macro Dash | Frequently Asked Questions</title>
+  <meta name="description" content="Frequently asked questions about Global Macro Dash: exchange rate sources, update frequency, currency converter usage, macro indicators, data reliability, and more.">
   <link rel="canonical" href="https://global-macro-dash.vercel.app/pages/faq.html">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="../css/styles.css">
@@ -12,57 +12,66 @@
 </head>
 <body class="font-inter bg-dash-bg text-dash-text min-h-screen">
   <header class="bg-white border-b border-dash-border shadow-sm">
-    <div class="max-w-4xl mx-auto px-4 py-3 flex items-center gap-3">
+    <div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
       <a href="../index.html" class="flex items-center gap-2 text-dash-primary hover:text-dash-primary-hover transition-colors">
         <span class="text-2xl">📊</span>
         <span class="font-bold">Global Macro Dash</span>
       </a>
+      <nav class="flex items-center gap-4 text-sm text-dash-text-sec">
+        <a href="about.html" class="hover:text-dash-primary transition-colors">About</a>
+        <a href="faq.html" class="text-dash-primary font-medium">FAQ</a>
+        <a href="privacy.html" class="hover:text-dash-primary transition-colors">Privacy</a>
+        <a href="terms.html" class="hover:text-dash-primary transition-colors">Terms</a>
+      </nav>
     </div>
   </header>
 
   <main class="max-w-4xl mx-auto px-4 py-8">
-    <h1 class="text-3xl font-bold mb-6">Frequently Asked Questions</h1>
+    <h1 class="text-3xl font-bold mb-2">Frequently Asked Questions</h1>
+    <p class="text-dash-text-sec mb-8">Everything you need to know about using Global Macro Dash.</p>
 
     <div class="space-y-4">
+
       <div class="bg-white rounded-xl border border-dash-border p-6 shadow-sm">
-        <h2 class="text-lg font-semibold mb-2">How often are exchange rates updated?</h2>
-        <p class="text-dash-text-sec">Exchange rates are fetched from the European Central Bank (ECB) via the Frankfurter API. Rates are updated on business days (Monday-Friday). The dashboard auto-refreshes every 5 minutes, but the underlying ECB data typically updates once per business day around 16:00 CET.</p>
+        <h2 class="text-lg font-semibold mb-3">What data does Global Macro Dash display, and what is it useful for?</h2>
+        <p class="text-dash-text-sec leading-relaxed">Global Macro Dash displays four main categories of macro-economic data. First, live exchange rates for nine major currency pairs, including EUR/USD, GBP/USD, USD/JPY, USD/CHF, USD/CAD, AUD/USD, NZD/USD, USD/CNY, and USD/KRW, each with current rate, daily change, and a 7-day trend sparkline chart. Second, commodity reference prices for gold (XAU/USD), silver (XAG/USD), and crude oil (WTI), which are key macro market indicators. Third, an interactive currency converter supporting over 30 currencies, useful for quick real-world conversions. Fourth, a sortable macro-indicators table for twelve major economies covering GDP growth rate, consumer price inflation rate, central bank interest rate, unemployment rate, and local currency. Together, these data points give investors, traders, analysts, business professionals, and students a comprehensive snapshot of global economic conditions in a single, free, easily accessible dashboard. It is particularly useful for anyone who needs to monitor how monetary policy decisions, trade developments, or geopolitical events are affecting major financial markets and economic performance across different regions of the world.</p>
       </div>
 
       <div class="bg-white rounded-xl border border-dash-border p-6 shadow-sm">
-        <h2 class="text-lg font-semibold mb-2">How accurate are the exchange rates?</h2>
-        <p class="text-dash-text-sec">Rates come from the ECB reference rates, which are widely used as a benchmark. However, actual trading rates may differ slightly depending on the market, broker, or financial institution. These rates are best used for informational purposes.</p>
+        <h2 class="text-lg font-semibold mb-3">How often are exchange rates updated, and how current is the data?</h2>
+        <p class="text-dash-text-sec leading-relaxed">Exchange rates on Global Macro Dash are sourced from the European Central Bank (ECB) reference rates via the Frankfurter API. The ECB publishes its official reference rates once per business day, typically at approximately 16:00 Central European Time, Monday through Friday. On weekends and public holidays, the ECB does not publish new rates, so the most recent business day's rates are displayed. The dashboard itself auto-refreshes every five minutes, as indicated by the countdown timer in the header. However, since the underlying ECB data updates only once daily, multiple refresh cycles within a business day will show the same rates until the ECB publishes new data. If you need intraday rate updates that reflect live market trading — such as rates changing second-by-second during the trading session — you would need to use a real-time market data provider or brokerage platform. The ECB reference rates shown here are best understood as official daily benchmark rates, not live interbank or retail trading prices. They are suitable for informational purposes, rough conversions, trend analysis, and educational use, but should not be used to execute live trades at these exact prices.</p>
       </div>
 
       <div class="bg-white rounded-xl border border-dash-border p-6 shadow-sm">
-        <h2 class="text-lg font-semibold mb-2">How do I use the currency converter?</h2>
-        <p class="text-dash-text-sec">Enter the amount you want to convert, select the source currency (From) and target currency (To), and the result will be calculated automatically. You can swap the currencies using the swap button. Quick conversion shortcuts are available below the converter.</p>
+        <h2 class="text-lg font-semibold mb-3">How do I use the currency converter, and which currencies are supported?</h2>
+        <p class="text-dash-text-sec leading-relaxed">The currency converter is located in the middle section of the main dashboard page. To use it, enter the amount you wish to convert in the "Amount" input field — you can type any numerical value including decimals. Then select your source currency from the "From" dropdown menu and your target currency from the "To" dropdown menu. The conversion result is calculated automatically and displayed in real time as you type or change selections. You do not need to click a button; the result updates instantly. To reverse a conversion (for example, to switch from USD to EUR to EUR to USD), click the swap arrow button between the two currency dropdowns. Below the converter, quick shortcut buttons are provided for the most commonly requested pairs: USD to EUR, EUR to GBP, USD to JPY, GBP to USD, USD to CHF, and USD to CAD — clicking these pre-fills the converter with the selected pair. The converter supports over 30 currencies drawn from the ECB rate database, covering all major and many minor currencies used in international trade and finance. All conversions use the same ECB reference rates displayed in the rate cards above, so results are internally consistent with the rest of the dashboard.</p>
       </div>
 
       <div class="bg-white rounded-xl border border-dash-border p-6 shadow-sm">
-        <h2 class="text-lg font-semibold mb-2">What do the sparkline charts show?</h2>
-        <p class="text-dash-text-sec">The small charts on each currency card show the 7-day trend. Green indicates the rate has increased over the period, red indicates a decrease. Hover over the chart to see specific values.</p>
+        <h2 class="text-lg font-semibold mb-3">What macro-economic indicators are tracked, and which countries are covered?</h2>
+        <p class="text-dash-text-sec leading-relaxed">The macro-indicators table covers twelve major economies: the United States, the Eurozone (treated as a single economic entity representing the European Central Bank's policy area), the United Kingdom, Japan, China, India, Canada, Australia, South Korea, Brazil, Switzerland, and Mexico. For each economy, the table displays four key macro indicators. GDP growth rate shows the most recently published annual or quarterly GDP growth percentage, which measures how fast the economy is expanding or contracting. Consumer price inflation (CPI) shows the year-over-year change in consumer prices, the primary metric central banks target when setting interest rate policy. The central bank interest rate shows the headline policy rate set by the relevant monetary authority — the Federal Reserve, European Central Bank, Bank of England, Bank of Japan, and so on — which is the key tool used to influence inflation and economic activity. Finally, the unemployment rate shows the percentage of the labor force that is currently seeking employment but unable to find it, a key indicator of labor market health. All four columns are sortable by clicking the column header, allowing you to quickly rank countries by any indicator. This is useful for comparative analysis — for example, sorting by inflation rate immediately shows which economies are experiencing the highest or lowest price pressures.</p>
       </div>
 
       <div class="bg-white rounded-xl border border-dash-border p-6 shadow-sm">
-        <h2 class="text-lg font-semibold mb-2">Where does the macro indicator data come from?</h2>
-        <p class="text-dash-text-sec">Macro indicators (GDP, inflation, interest rates, unemployment) are compiled from public sources including the IMF, World Bank, OECD, and national statistics offices. This data is updated periodically and may not reflect the most recent changes.</p>
+        <h2 class="text-lg font-semibold mb-3">Where does the macro indicator data come from, and how reliable is it?</h2>
+        <p class="text-dash-text-sec leading-relaxed">Macro-economic indicator data (GDP growth, inflation, interest rates, and unemployment) is compiled from publicly available data published by authoritative international institutions and national statistics offices. Primary sources include the International Monetary Fund (IMF) World Economic Outlook database, the World Bank Open Data platform, the Organisation for Economic Co-operation and Development (OECD) Statistics portal, and the official websites of national central banks and statistics agencies such as the U.S. Bureau of Economic Analysis, Eurostat, the Bank of Japan, and the National Bureau of Statistics of China. These are the most authoritative and widely cited sources of macro-economic data available. However, there are important limitations to understand. Unlike exchange rates which update daily, macro indicators are released on quarterly or annual publication schedules — GDP figures typically come out weeks after the end of each quarter, and some indicators are subject to significant revisions in subsequent releases. The figures shown in our database reflect the most recently available data at the time of our last update, which means they may not yet incorporate the most recent quarterly release. Interest rates reflect the current central bank policy rate and are updated promptly when central bank meetings result in rate changes, as these are announced publicly and immediately.</p>
       </div>
 
       <div class="bg-white rounded-xl border border-dash-border p-6 shadow-sm">
-        <h2 class="text-lg font-semibold mb-2">Is Global Macro Dash free to use?</h2>
-        <p class="text-dash-text-sec">Yes, completely free. There are no premium features, subscriptions, or hidden costs. The service is supported by advertisements.</p>
+        <h2 class="text-lg font-semibold mb-3">Is Global Macro Dash financial advice? Can I use it for trading decisions?</h2>
+        <p class="text-dash-text-sec leading-relaxed">No. Global Macro Dash is strictly an informational and educational resource. The data displayed on this platform does not constitute financial advice, investment advice, trading advice, tax advice, or any other form of professional advisory service. The exchange rates shown are ECB reference benchmarks, not live interbank market prices, and actual trading prices at any bank, broker, or exchange may differ — sometimes significantly — from the rates shown here. Commodity prices are indicative only. Macro-economic indicators reflect historical data and past economic performance is not indicative of future results. Making financial or investment decisions — particularly in currency markets, which are highly leveraged and inherently risky — requires much more than reference rate data. You should consider your own financial situation and risk tolerance, consult with a licensed financial advisor or investment professional, use up-to-date real-time market data from regulated financial service providers, understand the regulatory environment in your jurisdiction, and maintain appropriate risk management practices. We strongly caution against using this dashboard as the basis for any live trading or investment decision. The Service is best used for monitoring trends, educational research, rough currency conversions, and staying informed about general macro conditions.</p>
       </div>
 
       <div class="bg-white rounded-xl border border-dash-border p-6 shadow-sm">
-        <h2 class="text-lg font-semibold mb-2">Can I use this for trading decisions?</h2>
-        <p class="text-dash-text-sec">Global Macro Dash is for informational and educational purposes only. It is not financial advice. Always consult qualified financial professionals and verify data with official sources before making trading or investment decisions.</p>
+        <h2 class="text-lg font-semibold mb-3">Does Global Macro Dash work on mobile devices and tablets?</h2>
+        <p class="text-dash-text-sec leading-relaxed">Yes, Global Macro Dash is fully responsive and designed to provide a high-quality experience across all device sizes. On desktop and large monitors, the dashboard shows the full layout with all sections visible simultaneously. On tablets, the grid adjusts to show fewer cards per row while maintaining all functionality. On smartphones, sections stack vertically for comfortable scrolling, and the currency converter and macro table are optimized for touch input. The macro-indicators table is horizontally scrollable on narrow screens so all columns remain accessible. The dashboard is also installable as a Progressive Web App (PWA) on both Android and iOS devices. On Android using Chrome, open the site and select "Add to Home Screen" from the browser's options menu. On iOS using Safari, tap the Share icon and select "Add to Home Screen." Once installed, the app launches in a dedicated full-screen window without browser navigation bars. The PWA also enables faster subsequent load times through service worker caching. Note that the auto-refresh feature continues to function when the app is open in the foreground, ensuring you always have current rates even in PWA mode.</p>
       </div>
 
       <div class="bg-white rounded-xl border border-dash-border p-6 shadow-sm">
-        <h2 class="text-lg font-semibold mb-2">What languages are supported?</h2>
-        <p class="text-dash-text-sec">The dashboard is available in 8 languages: English, Korean, Japanese, Chinese (Simplified), Spanish, German, French, and Portuguese. Use the language selector in the header to switch languages.</p>
+        <h2 class="text-lg font-semibold mb-3">How do I share today's rates or copy data from the dashboard?</h2>
+        <p class="text-dash-text-sec leading-relaxed">Global Macro Dash includes several sharing options to make it easy to distribute current rate information to colleagues, clients, or social networks. The "Share Today's Rates" section near the bottom of the main dashboard page provides one-click buttons for sharing a summary of current key exchange rates and macro conditions directly to X/Twitter, Facebook, and LinkedIn. Clicking any of these buttons opens a pre-populated post in a new window with a summary of current data and a link back to the dashboard. For sharing via messaging apps, email, or other channels, the "Copy Link" button copies the dashboard's URL to your clipboard, which you can then paste anywhere. On mobile devices and modern browsers, the Web Share API is supported, allowing you to use your device's native share sheet to send the link to any installed app. If you need specific rate data for a report or document, you can simply read the values from the rate cards or the macro-indicators table, all of which display clearly formatted numbers. The dashboard does not currently support direct data export to spreadsheet formats, but the sortable macro table can be read directly or transcribed easily. We plan to add additional export options in future updates based on user feedback.</p>
       </div>
+
     </div>
 
     <div class="mt-6 text-center">
@@ -71,7 +80,7 @@
   </main>
 
   <footer class="bg-white border-t border-dash-border mt-8 py-4 text-center text-sm text-dash-text-sec">
-    <p>&copy; 2026 Global Macro Dash. All rights reserved.</p>
+    <p>&copy; 2026 Global Macro Dash. All rights reserved. | <a href="about.html" class="hover:text-dash-primary">About</a> | <a href="faq.html" class="hover:text-dash-primary">FAQ</a> | <a href="privacy.html" class="hover:text-dash-primary">Privacy Policy</a> | <a href="terms.html" class="hover:text-dash-primary">Terms of Service</a></p>
   </footer>
 </body>
 </html>
